@@ -1,0 +1,78 @@
+export const meta = {
+  title: "States Live in Hilbert Space",
+  module: "04-the-quantum-world",
+  order: 1,
+  estimatedMinutes: 45,
+};
+
+# States Live in Hilbert Space
+
+<WhimsyBreak character="raccoon" mood="smug">
+The raccoon set down his martini. "Quantum mechanics is just linear algebra
+with feelings. The feelings are the *measurements*."
+</WhimsyBreak>
+
+The full grammar of QM in three slogans:
+
+1. A physical state is a unit vector $|\psi\rangle$ in a complex Hilbert
+   space $\mathcal H$.
+2. An observable is a Hermitian operator $\hat A : \mathcal H \to \mathcal H$.
+3. A measurement returns an eigenvalue of $\hat A$ with probability
+   $|\langle a|\psi\rangle|^2$ (the **Born rule**).
+
+That's it. The Schrödinger equation is just the time-evolution part:
+
+$$
+i\hbar \frac{d}{dt}|\psi\rangle = \hat H |\psi\rangle
+$$
+
+## The uncertainty principle is a theorem about commutators
+
+For Hermitian $\hat A, \hat B$ with $[\hat A, \hat B] = i \hat C$, the
+Cauchy-Schwarz inequality applied to $|\psi\rangle$ gives
+
+$$
+\Delta A \, \Delta B \ge \tfrac{1}{2} |\langle \hat C \rangle|
+$$
+
+For $[\hat x, \hat p] = i\hbar$, this collapses to the textbook
+$\Delta x \Delta p \ge \hbar / 2$. **Note**: nothing about microscopes or
+"disturbance during measurement." It's a property of vector spaces with
+non-commuting operators.
+
+## From Poisson brackets to commutators
+
+The classical Poisson bracket $\{q, p\}_{\rm PB} = 1$ becomes the quantum
+commutator $[\hat q, \hat p] = i\hbar$ via Dirac's quantisation rule
+
+$$
+\{f, g\}_{\rm PB} \longrightarrow \frac{1}{i\hbar}[\hat f, \hat g]
+$$
+
+This is the bridge that the Lagrangian/Hamiltonian framework of Module 2
+laid down for us. Quantum mechanics inherits its skeleton from the
+symplectic geometry of phase space.
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question: "The Born rule says the probability of measuring eigenvalue a is:",
+      choices: [
+        "⟨ψ|Â|ψ⟩",
+        "|⟨a|ψ⟩|²",
+        "⟨a|ψ⟩",
+        "|ψ(a)|",
+      ],
+      answer: 1,
+      explanation: "Modulus squared of the projection onto the eigenstate.",
+    },
+    {
+      type: "short-answer",
+      question: "What is [x̂, p̂] equal to?",
+      answer: "iℏ",
+      accept: ["i\\s*(hbar|\\\\hbar|ℏ|h-bar)", "i\\s*\\*?\\s*ℏ"],
+      explanation: "Canonical commutation relation. Sign convention: [x̂, p̂] = +iℏ.",
+    },
+  ]}
+/>

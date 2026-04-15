@@ -1,0 +1,104 @@
+export const meta = {
+  title: "Maxwell's Equations in Tensor Form",
+  module: "03-light-and-spacetime",
+  order: 1,
+  estimatedMinutes: 50,
+};
+
+# Maxwell's Equations in Tensor Form
+
+<WhimsyBreak character="robot" mood="confused">
+The brass-plated robot stared at four equations. "Why are there *four*," it
+beeped. "Why not one. Or zero. Why is anything?"
+</WhimsyBreak>
+
+In undergraduate notation, Maxwell's equations are four:
+
+$$
+\nabla \cdot \vec E = \rho/\varepsilon_0, \quad
+\nabla \cdot \vec B = 0, \quad
+\nabla \times \vec E = -\partial_t \vec B, \quad
+\nabla \times \vec B = \mu_0 \vec J + \mu_0 \varepsilon_0 \partial_t \vec E
+$$
+
+In relativistic / tensor notation, they are **two**:
+
+$$
+\partial_\mu F^{\mu\nu} = \mu_0 J^\nu, \qquad \partial_{[\alpha} F_{\beta\gamma]} = 0
+$$
+
+In differential-form notation, they are **two and a half lines**:
+
+$$
+dF = 0, \qquad d{\star} F = J
+$$
+
+The collapse is not cosmetic. It tells you Maxwell's theory has a **gauge
+symmetry**, lives on a **principal U(1) bundle**, and that $A$ is a
+*connection* — exactly the structure that GR has for spacetime and the
+Standard Model has for the strong and electroweak forces.
+
+## The Faraday tensor
+
+$$
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
+$$
+
+is antisymmetric, with components
+
+$$
+F_{\mu\nu} = \begin{pmatrix}
+0 & -E_x/c & -E_y/c & -E_z/c \\
+E_x/c & 0 & B_z & -B_y \\
+E_y/c & -B_z & 0 & B_x \\
+E_z/c & B_y & -B_x & 0
+\end{pmatrix}
+$$
+
+E and B are not separate fields: they are different views of the same tensor
+seen by different observers.
+
+## Drag the charges
+
+<VectorField />
+
+This is just superposition of $1/r^2$ Coulomb fields, but the *pattern* is
+the field — exactly the kind of geometric object Maxwell's equations care
+about.
+
+## Why gauge invariance is the point
+
+Substitute $A_\mu \to A_\mu + \partial_\mu \chi$ for any scalar $\chi$:
+
+$$
+F_{\mu\nu} \to \partial_\mu(A_\nu + \partial_\nu\chi) - \partial_\nu(A_\mu + \partial_\mu\chi) = F_{\mu\nu}
+$$
+
+The fields don't notice. So the potential $A$ is not directly observable…
+except through the Aharonov-Bohm effect, where the *holonomy* $\oint A\cdot dl$
+*is*. Module 9 returns to this scandal.
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question: "Under A_μ → A_μ + ∂_μχ, what happens to F_μν?",
+      choices: [
+        "It picks up an additional term ∂_μ∂_νχ.",
+        "It is unchanged.",
+        "It transforms as a covariant tensor of rank 1.",
+        "It vanishes identically.",
+      ],
+      answer: 1,
+      explanation:
+        "F is the curvature of A; gauge transformations are the kernel of the curvature map.",
+    },
+    {
+      type: "short-answer",
+      question:
+        "How many algebraically independent components does the antisymmetric F_μν have in 4D?",
+      answer: "6",
+      explanation: "n(n-1)/2 with n = 4. Three E-components plus three B-components.",
+    },
+  ]}
+/>

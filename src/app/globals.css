@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KaTeX styles for equation rendering */
+@import "katex/dist/katex.min.css";
+
+@layer base {
+  :root {
+    --color-penthouse-black: #0a0a0f;
+    --color-penthouse-navy: #0d1b2a;
+    --color-penthouse-charcoal: #1a1a2e;
+    --color-penthouse-plum: #16032f;
+
+    --color-brass: #d4af37;
+    --color-brass-light: #f7e7ce;
+
+    --color-neon-pink: #ff69b4;
+    --color-neon-cyan: #00ffff;
+    --color-neon-violet: #b026ff;
+
+    --color-jewel-emerald: #046307;
+    --color-jewel-sapphire: #0f52ba;
+    --color-jewel-ruby: #9b111e;
+    --color-jewel-amethyst: #9966cc;
+  }
+
+  html,
+  body {
+    background-color: var(--color-penthouse-black);
+    color: var(--color-brass-light);
+    min-height: 100vh;
+    font-family: var(--font-body), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-image:
+      radial-gradient(ellipse at 70% 80%, rgba(212, 175, 55, 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 30% 60%, rgba(15, 82, 186, 0.06) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 0%, rgba(255, 105, 180, 0.04) 0%, transparent 35%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+    color: var(--color-brass-light);
+    letter-spacing: 0.005em;
+  }
+
+  h1 { @apply text-4xl md:text-5xl font-bold; }
+  h2 { @apply text-3xl md:text-4xl font-semibold mt-12 mb-4; }
+  h3 { @apply text-2xl md:text-3xl font-semibold mt-8 mb-3; }
+  h4 { @apply text-xl md:text-2xl font-medium mt-6 mb-2; }
+
+  p {
+    @apply leading-relaxed my-4;
+  }
+
+  a {
+    color: var(--color-neon-cyan);
+    text-decoration-color: rgba(0, 255, 255, 0.4);
+    text-underline-offset: 3px;
+    transition: all 0.2s ease;
+  }
+  a:hover {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.3);
+    color: #f7e7ce;
+  }
+
+  code, pre {
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
+  code {
+    @apply px-1.5 py-0.5 rounded text-sm;
+    background: rgba(212, 175, 55, 0.08);
+    color: var(--color-brass-light);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+  }
+
+  pre {
+    @apply p-4 rounded-lg overflow-x-auto my-6;
+    background: rgba(10, 10, 15, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(10, 10, 15, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow:
+      inset 0 1px 0 rgba(247, 231, 206, 0.06),
+      0 8px 32px rgba(0, 0, 0, 0.45);
+  }
+
+  .brass-border {
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.1);
+  }
+
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(212, 175, 55, 0.7),
+      transparent
+    );
+    border: none;
+  }
+
+  .neon-text-pink {
+    color: #ff69b4;
+    text-shadow:
+      0 0 4px rgba(255, 105, 180, 0.6),
+      0 0 12px rgba(255, 105, 180, 0.4);
+  }
+  .neon-text-cyan {
+    color: #00ffff;
+    text-shadow:
+      0 0 4px rgba(0, 255, 255, 0.6),
+      0 0 12px rgba(0, 255, 255, 0.4);
+  }
+  .neon-text-brass {
+    color: #f7e7ce;
+    text-shadow:
+      0 0 4px rgba(212, 175, 55, 0.6),
+      0 0 12px rgba(212, 175, 55, 0.3);
+  }
+
+  .neon-button {
+    @apply px-6 py-3 rounded-md font-accent uppercase tracking-widest text-sm transition-all;
+    color: #f7e7ce;
+    background: linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.15),
+      rgba(212, 175, 55, 0.05)
+    );
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+  }
+  .neon-button:hover {
+    box-shadow:
+      0 0 8px rgba(255, 105, 180, 0.5),
+      0 0 24px rgba(255, 105, 180, 0.25);
+    border-color: rgba(255, 105, 180, 0.6);
+    color: #fff;
+  }
+
+  .velvet-noise {
+    background-image:
+      radial-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+    background-size: 6px 6px;
+  }
+
+  /* KaTeX overrides for dark theme */
+  .katex {
+    color: #f7e7ce;
+    font-size: 1.05em;
+  }
+  .katex-display {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(10, 10, 15, 0.5);
+    border-left: 2px solid rgba(212, 175, 55, 0.4);
+    border-radius: 0.25rem;
+    overflow-x: auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}

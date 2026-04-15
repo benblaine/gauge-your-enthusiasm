@@ -1,0 +1,98 @@
+export const meta = {
+  title: "What Is a Tensor, Really?",
+  module: "01-language-of-physics",
+  order: 1,
+  estimatedMinutes: 35,
+};
+
+# What Is a Tensor, Really?
+
+<WhimsyBreak character="fox" mood="contemplative">
+The fox swirled his glass of plum brandy and stared at the city. "A tensor,"
+he said, mostly to the fern, "is the kind of object that doesn't care which
+way you tilted your head when you measured it. Everything else is just
+*coordinates*."
+</WhimsyBreak>
+
+A vector is a thing — an arrow in space — and the *components* of that vector
+are how it looks once you've picked a basis. Pick a different basis, the
+arrow is unchanged, but the numbers describing it change in a very specific
+way.
+
+A **tensor** is what you get when you generalise that idea: a multilinear
+object whose components transform under a change of basis according to a
+fixed rule that involves the Jacobian (and its inverse) once for each index.
+
+## Indices, up and down
+
+We write tensor components with indices. Some live upstairs, some downstairs:
+
+$$
+T^{\mu\nu}{}_{\rho}
+$$
+
+Two contravariant (upper) indices, one covariant (lower) index. They tell you
+how to raise the basis change properly when you switch from one coordinate
+chart to another.
+
+The classic test for "is this object a tensor?" is the **transformation law**.
+A vector transforms as
+
+$$
+V'^{\mu} = \frac{\partial x'^{\mu}}{\partial x^{\nu}} \, V^{\nu}
+$$
+
+A covector (one-form) transforms with the *inverse*:
+
+$$
+\omega'_{\mu} = \frac{\partial x^{\nu}}{\partial x'^{\mu}} \, \omega_{\nu}
+$$
+
+A higher-rank tensor stacks these factors index-by-index. Stuff that *doesn't*
+transform like this isn't a tensor; it's a coordinate-bound illusion. Christoffel
+symbols, for instance, are *not* tensors — and that's what makes them
+interesting.
+
+## The Einstein summation convention
+
+Repeated index, once up once down ⇒ implicit sum:
+
+$$
+A^{\mu} B_{\mu} \equiv \sum_{\mu=0}^{3} A^{\mu} B_{\mu}
+$$
+
+If you see two upper or two lower indices repeated without a metric in
+sight, something is wrong (or you're working in a flat Cartesian space and
+being lazy).
+
+## Why physicists love them
+
+Because the *equations* of physics shouldn't care which coordinates you used.
+Express a law as `T^{...}_{...} = 0` for some tensor `T`, and you've made an
+honest claim — one that survives a coordinate change unscathed. This is the
+whole geometric thrust of GR and gauge theory.
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question: "Which of the following is *not* a tensor?",
+      choices: [
+        "The metric g_μν",
+        "The Faraday tensor F_μν",
+        "The Christoffel symbol Γ^ρ_μν",
+        "The Ricci tensor R_μν",
+      ],
+      answer: 2,
+      explanation:
+        "Christoffel symbols transform with an inhomogeneous extra term — they encode the choice of connection, not a coordinate-invariant object.",
+    },
+    {
+      type: "short-answer",
+      question:
+        "If A^μ = (3, 1, -2) and the metric is diag(1,1,1), what is A_μ A^μ?",
+      answer: "14",
+      explanation: "9 + 1 + 4 = 14. Lowering with the identity metric leaves components unchanged.",
+    },
+  ]}
+/>

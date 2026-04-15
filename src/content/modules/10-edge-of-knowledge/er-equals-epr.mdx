@@ -1,0 +1,85 @@
+export const meta = {
+  title: "ER = EPR",
+  module: "10-edge-of-knowledge",
+  order: 1,
+  estimatedMinutes: 50,
+};
+
+# ER = EPR
+
+<WhimsyBreak character="fox" mood="contemplative">
+"Two ideas Einstein had in 1935," the fox said, refilling his glass.
+"Wormholes, with Rosen. Entanglement, with Podolsky and Rosen. Eighty years
+later we discover they were the same idea. Einstein was, characteristically,
+*twice as right as he thought*."
+</WhimsyBreak>
+
+In 1935 Einstein published two famous papers:
+
+- **ER**: Einstein-Rosen bridges — non-traversable wormholes connecting
+  distant regions of spacetime through the geometry of an eternal black
+  hole.
+- **EPR**: Einstein-Podolsky-Rosen — the "spooky" correlations of entangled
+  particles.
+
+In 2013 Maldacena and Susskind proposed the **ER = EPR conjecture**: every
+maximally entangled pair of quantum systems is dual to a non-traversable
+wormhole connecting them. Entanglement *is* a wormhole, in the geometry-as-
+quantum-information sense.
+
+## Ryu-Takayanagi: entanglement entropy as area
+
+The first quantitative crack: the **Ryu-Takayanagi formula** (2006) for
+holographic entanglement entropy:
+
+$$
+S(A) = \frac{\text{Area}(\gamma_A)}{4 G_N}
+$$
+
+where $\gamma_A$ is the minimal-area extremal surface in the bulk anchored
+to the boundary region $A$. The von Neumann entropy of a boundary region
+equals the area of a bulk surface — exactly the form of the Bekenstein-Hawking
+entropy of a black hole, applied to *any* boundary region.
+
+If RT-type relations hold beyond holography, **spacetime connectivity is
+literally a re-description of quantum entanglement**. ER = EPR formalises
+the conjecture that gravity might not be fundamental: it might emerge from
+the entanglement structure of an underlying QFT.
+
+## Tensor networks
+
+MERA, PEPS, and other tensor network states give *concrete models* in which
+spatial geometry emerges from the pattern of entanglement among local
+degrees of freedom. The discrete tensor network approximates a hyperbolic
+slice of AdS — the geometry the entanglement encodes.
+
+## What it would mean
+
+If spacetime is emergent, then "warp drives," "exotic matter," and the rest
+of the speculative menu of Module 9 are not problems of *mechanics* — they
+are problems of *quantum information*. The answer to "how do you bend
+spacetime" might be "you re-engineer the entanglement pattern of the
+relevant degrees of freedom." That's a different field of engineering than
+the one we currently know how to do.
+
+It also reframes the closing question of the podcast: if you have craft
+that defy the laws of physics, do you call a physicist, or a *quantum
+information theorist*?
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question: "The Ryu-Takayanagi formula relates:",
+      choices: [
+        "Black hole temperature to surface gravity.",
+        "Entanglement entropy of a boundary region to the area of an extremal bulk surface.",
+        "The cosmological constant to the size of the observable universe.",
+        "Aharonov-Bohm phase to magnetic flux.",
+      ],
+      answer: 1,
+      explanation:
+        "S = Area / 4G_N — the bulk-area equals boundary-entanglement statement of holography.",
+    },
+  ]}
+/>

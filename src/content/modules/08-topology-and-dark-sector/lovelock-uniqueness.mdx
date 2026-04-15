@@ -1,0 +1,67 @@
+export const meta = {
+  title: "Lovelock's Uniqueness Theorem",
+  module: "08-topology-and-dark-sector",
+  order: 1,
+  estimatedMinutes: 45,
+};
+
+# Lovelock's Uniqueness Theorem
+
+<WhimsyBreak character="fox" mood="smug">
+The fox tapped his glass. "If your dark energy is truly *dynamical*, you do
+not get to keep using only the metric. Lovelock said so in 1971. Lovelock
+was correct."
+</WhimsyBreak>
+
+**Lovelock (1971):** In four spacetime dimensions, the only divergence-free,
+symmetric, rank-(0,2) tensor built from the metric and its first two
+derivatives, linear in the second derivatives, is
+
+$$
+A_{\mu\nu} = a \, G_{\mu\nu} + b \, g_{\mu\nu}
+$$
+
+where $G_{\mu\nu}$ is the Einstein tensor and $a, b$ are constants.
+
+Translation: in 4D, the Einstein field equations
+$G_{\mu\nu} + \Lambda g_{\mu\nu} = (8\pi G/c^4) T_{\mu\nu}$ are essentially
+the *only* possibility. You cannot improve them while staying within
+"theories of $g$ alone."
+
+## Why DESI matters
+
+In March 2025, DESI's DR2 results showed dark energy may not be a strict
+cosmological constant — the equation-of-state parameter $w(z)$ appears to
+deviate from $-1$, with a $4.2\sigma$ preference for dynamical dark energy
+parameterised as
+
+$$
+w(a) = w_0 + w_a (1 - a)
+$$
+
+If this holds, Lovelock's theorem is screaming at us: **you can no longer
+fit dark energy into a theory of the metric alone.** A varying $\Lambda$
+demands new field content — a scalar field (quintessence), modified gravity,
+extra dimensions, *something* beyond $g_{\mu\nu}$.
+
+This is the kind of moment Weinstein loves: the math has been telling us
+this for fifty years. Now the data has caught up.
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question:
+        "If DESI confirms dynamical dark energy, what does Lovelock's theorem force us to add?",
+      choices: [
+        "More cosmological constant terms.",
+        "New field content beyond the metric (scalar fields, modified gravity, etc.).",
+        "A larger value of Newton's constant.",
+        "Higher powers of the Riemann tensor in the same dimensions.",
+      ],
+      answer: 1,
+      explanation:
+        "In 4D, no metric-only modification can give you a w(z) that varies. You need new degrees of freedom.",
+    },
+  ]}
+/>

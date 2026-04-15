@@ -1,0 +1,88 @@
+export const meta = {
+  title: "Riemann Curvature",
+  module: "05-gravity-as-geometry",
+  order: 2,
+  estimatedMinutes: 60,
+};
+
+# Riemann Curvature
+
+<WhimsyBreak character="fox" mood="contemplative">
+"The thing about curvature," the fox said, watching a vector parallel-transport
+itself around a closed loop and not quite return, "is that it's not a fact
+about the surface. It's a fact about how *failing to come back* feels."
+</WhimsyBreak>
+
+The Riemann tensor is the failure of parallel transport around an
+infinitesimal closed loop. If you transport a vector $V^\mu$ around a tiny
+parallelogram with sides $\delta x^\alpha, \delta x^\beta$, you don't come
+back to $V^\mu$ — you come back to
+
+$$
+\delta V^\mu = -R^\mu{}_{\nu\alpha\beta} V^\nu \, \delta x^\alpha \delta x^\beta
+$$
+
+That coefficient, $R^\mu{}_{\nu\alpha\beta}$, is the **Riemann curvature
+tensor**. In coordinates,
+
+$$
+R^\rho{}_{\sigma\mu\nu} = \partial_\mu \Gamma^\rho_{\nu\sigma} - \partial_\nu \Gamma^\rho_{\mu\sigma}
++ \Gamma^\rho_{\mu\lambda} \Gamma^\lambda_{\nu\sigma} - \Gamma^\rho_{\nu\lambda} \Gamma^\lambda_{\mu\sigma}
+$$
+
+It's the commutator of two covariant derivatives, $[\nabla_\mu, \nabla_\nu] V^\rho = R^\rho{}_{\sigma\mu\nu} V^\sigma$.
+
+## The hierarchy
+
+Contract Riemann to get less information, more brevity:
+
+| Object | Formula | Encodes |
+| --- | --- | --- |
+| Riemann | $R^\rho{}_{\sigma\mu\nu}$ | Full curvature, 20 independent components in 4D |
+| Ricci | $R_{\mu\nu} = R^\rho{}_{\mu\rho\nu}$ | Volume distortion sourced by matter |
+| Scalar | $R = g^{\mu\nu} R_{\mu\nu}$ | Trace |
+| Weyl | $C_{\rho\sigma\mu\nu}$ | Trace-free part: tidal / vacuum / GW |
+
+In a perfectly homogeneous and isotropic universe (FLRW), the Weyl tensor
+vanishes — there's nothing for tidal forces to lock onto.
+
+## See it
+
+<Scene3D type="spacetime-curvature" />
+
+That deformed brass mesh is the Flamm embedding of a Schwarzschild spatial
+slice. The slope is the geometry; the geometry is the gravity. There is
+nothing else.
+
+## And then Einstein
+
+$$
+G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
+$$
+
+$G_{\mu\nu} = R_{\mu\nu} - \tfrac{1}{2} R g_{\mu\nu}$ is the Einstein tensor.
+The Bianchi identity $\nabla_\mu G^{\mu\nu} = 0$ is automatic, which means
+$\nabla_\mu T^{\mu\nu} = 0$ — local conservation of energy-momentum is *built
+into the geometry*.
+
+That coupling $8\pi G/c^4 \approx 2.08 \times 10^{-43}$ (SI) is the "G/c⁴
+problem": warping spacetime by anything noticeable requires absurd amounts of
+stress-energy. This is why building a wormhole is hard.
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question: "Why does the Bianchi identity ∇_μ G^μν = 0 matter physically?",
+      choices: [
+        "It makes G_μν symmetric.",
+        "It guarantees ∇_μ T^μν = 0 — energy-momentum conservation.",
+        "It implies the cosmological constant must be zero.",
+        "It is a mathematical curiosity with no physical content.",
+      ],
+      answer: 1,
+      explanation:
+        "Geometry forces conservation of the source — a beautiful structural consequence of differential identities on curvature.",
+    },
+  ]}
+/>

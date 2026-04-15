@@ -1,0 +1,83 @@
+export const meta = {
+  title: "The Euler-Lagrange Equation",
+  module: "02-reimagining-mechanics",
+  order: 2,
+  estimatedMinutes: 45,
+};
+
+# The Euler-Lagrange Equation
+
+<WhimsyBreak character="fox" mood="contemplative">
+"What if," the fox murmured to his pet fern, adjusting his velvet smoking
+jacket, "instead of tracking every force on every particle... we just asked
+nature what path it *prefers*?"
+</WhimsyBreak>
+
+The principle of least action says nature minimises the **action**
+
+$$
+S = \int_{t_1}^{t_2} L(q, \dot q, t)\, dt
+$$
+
+Setting the variation $\delta S = 0$ for arbitrary $\delta q$ that vanishes
+at the endpoints gives the **Euler-Lagrange equation**:
+
+$$
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q}\right) - \frac{\partial L}{\partial q} = 0
+$$
+
+For the simple pendulum, $L = \tfrac{1}{2} m L^2 \dot\theta^2 - m g L (1 - \cos\theta)$,
+and Euler-Lagrange spits out $\ddot\theta + (g/L)\sin\theta = 0$. No free body
+diagrams, no decomposed tensions, no choice of axes. The Lagrangian doesn't
+care how you label the world.
+
+## Try it
+
+<SimCanvas type="pendulum" showLagrangian />
+
+Watch the kinetic, potential, and total energy at the bottom-right. Energy
+$E = T + V$ is conserved when there's no damping — a direct consequence of
+the time-independence of $L$ (Noether's theorem).
+
+## From Lagrange to Hamilton
+
+Define the conjugate momentum $p = \partial L / \partial \dot q$ and Legendre
+transform:
+
+$$
+H(q, p) = p\dot q - L
+$$
+
+Hamilton's equations $\dot q = \partial H / \partial p$ and
+$\dot p = -\partial H / \partial q$ are the same dynamics, now living on
+**phase space** instead of configuration space. The geometric structure that
+makes phase space *phase space* is the symplectic 2-form $\omega = dp \wedge dq$
+— and that structure is what gets quantised when we replace
+$\{q, p\}_{\rm PB} = 1$ with $[\hat q, \hat p] = i\hbar$.
+
+<Quiz
+  questions={[
+    {
+      type: "short-answer",
+      question:
+        "For L = ½m(ẋ)² − ½kx², write the equation of motion produced by Euler-Lagrange.",
+      answer: "mẍ + kx = 0",
+      accept: ["m\\s*x[\\.\\s'\\u0307]+\\s*\\+\\s*k\\s*x\\s*=\\s*0", "m\\s*ddot\\s*x\\s*\\+\\s*kx\\s*=\\s*0"],
+      explanation: "Simple harmonic oscillator. ω² = k/m.",
+    },
+    {
+      type: "multiple-choice",
+      question:
+        "Why is the Lagrangian formulation 'better' than F = ma for theoretical work?",
+      choices: [
+        "It uses fewer Greek letters.",
+        "It exposes symmetries via Noether's theorem and is coordinate-invariant.",
+        "It works only in inertial frames.",
+        "It avoids the need for energy conservation.",
+      ],
+      answer: 1,
+      explanation:
+        "Coordinate invariance + symmetry → conservation laws is the entire structural point.",
+    },
+  ]}
+/>

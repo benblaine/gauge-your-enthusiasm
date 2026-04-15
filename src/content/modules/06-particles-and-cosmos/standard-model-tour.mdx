@@ -1,0 +1,91 @@
+export const meta = {
+  title: "A Tour of the Standard Model",
+  module: "06-particles-and-cosmos",
+  order: 1,
+  estimatedMinutes: 60,
+};
+
+# A Tour of the Standard Model
+
+<WhimsyBreak character="raccoon" mood="delighted">
+"It's all just," the raccoon waved his glass at the city, "*one Lagrangian*.
+Slightly long, but. One."
+</WhimsyBreak>
+
+The Standard Model is a gauge theory with gauge group
+
+$$
+G = SU(3)_C \times SU(2)_L \times U(1)_Y
+$$
+
+After electroweak symmetry breaking by the Higgs vacuum, this collapses to
+
+$$
+SU(3)_C \times U(1)_{\rm em}
+$$
+
+Each factor is a force:
+
+| Factor | Force | Carriers |
+| --- | --- | --- |
+| $SU(3)_C$ | Strong (QCD) | 8 gluons |
+| $SU(2)_L \times U(1)_Y$ | Electroweak | $W^\pm, Z^0, \gamma$ |
+| $U(1)_{\rm em}$ (after EWSB) | Electromagnetism | photon |
+
+The matter content is three generations of left-handed weak doublets and
+right-handed singlets of quarks and leptons:
+
+$$
+\begin{pmatrix} u \\ d \end{pmatrix}_L, \;
+\begin{pmatrix} \nu_e \\ e \end{pmatrix}_L, \;
+u_R, \; d_R, \; e_R, \;\ldots
+$$
+
+## The Higgs trick
+
+The Higgs scalar $\phi$ has potential
+
+$$
+V(\phi) = \mu^2 |\phi|^2 + \lambda |\phi|^4
+$$
+
+with $\mu^2 < 0$. The vacuum sits not at $\phi = 0$ but on the brim of the
+Mexican hat. Three of the four broken generators give mass to $W^\pm, Z^0$
+via the Higgs mechanism; one combination (the photon) corresponds to the
+unbroken $U(1)_{\rm em}$ and stays massless.
+
+## The Lagrangian, schematically
+
+$$
+\mathcal L_{\rm SM} = -\tfrac{1}{4} F^a_{\mu\nu} F^{a\,\mu\nu}
++ \bar\psi i \gamma^\mu D_\mu \psi
++ |D_\mu \phi|^2 - V(\phi) - (Y_{ij} \bar\psi_i \phi \psi_j + \text{h.c.})
+$$
+
+Four pieces: gauge kinetic, fermion kinetic with covariant derivatives,
+Higgs kinetic + potential, and Yukawa terms that give fermions mass after
+EWSB.
+
+This Lagrangian fits on a coffee mug, and it accounts for everything in the
+universe except gravity, dark matter, dark energy, the matter–antimatter
+asymmetry, neutrino masses (mostly), the strong CP problem, and the
+hierarchy problem. Otherwise: bulletproof.
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question:
+        "Why does the photon stay massless after electroweak symmetry breaking?",
+      choices: [
+        "Photons are too light to bother coupling to the Higgs.",
+        "It's the gauge boson of the unbroken U(1)_em — the Higgs vacuum is invariant under it.",
+        "Symmetry forbids photon mass terms by Lorentz invariance alone.",
+        "The Higgs mechanism gives mass only to fermions.",
+      ],
+      answer: 1,
+      explanation:
+        "Three of four electroweak gauge bosons get eaten; the unbroken combination remains massless.",
+    },
+  ]}
+/>

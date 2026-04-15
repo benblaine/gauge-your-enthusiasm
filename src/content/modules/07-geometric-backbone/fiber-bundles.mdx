@@ -1,0 +1,93 @@
+export const meta = {
+  title: "Fiber Bundles & Connections",
+  module: "07-geometric-backbone",
+  order: 2,
+  estimatedMinutes: 70,
+};
+
+# Fiber Bundles & Connections
+
+<WhimsyBreak character="fern" mood="delighted">
+The fern, against all expectation, was beginning to understand. It was a
+*plant*. It had no business understanding bundles. And yet.
+</WhimsyBreak>
+
+A **fiber bundle** is a space that locally looks like the product of two
+spaces — a base $M$ and a fiber $F$ — but globally may twist. Formally:
+
+- Total space $E$
+- Base manifold $M$
+- Projection $\pi : E \to M$
+- Each $\pi^{-1}(x) \cong F$
+- Local trivialisations $\phi_U : \pi^{-1}(U) \to U \times F$
+
+A **principal $G$-bundle** $P \to M$ has fiber equal to a Lie group $G$,
+acting on itself by right multiplication. The structure group encodes "how
+much the fibers twist as you walk around in $M$."
+
+## A connection is a way to differentiate
+
+Given $P \to M$ and a representation of $G$, we get an **associated vector
+bundle** $E = P \times_G V$. A **connection** on $P$ — equivalently, a
+covariant derivative on $E$ — tells you how to compare values of a section
+at infinitesimally separated points.
+
+In a local trivialisation, the connection is represented by a Lie-algebra
+valued 1-form $A = A^a_\mu T_a \, dx^\mu$, the **gauge potential**.
+
+Its curvature is the Lie-algebra valued 2-form
+
+$$
+F = dA + A \wedge A
+$$
+
+In components: $F^a_{\mu\nu} = \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + f^a{}_{bc} A^b_\mu A^c_\nu$.
+
+## The Wu-Yang dictionary
+
+This is the bilingual phrasebook between geometry and physics:
+
+| Geometry | Physics |
+| --- | --- |
+| Principal bundle $P \to M$ | Gauge theory on spacetime $M$ |
+| Connection 1-form $A$ | Gauge potential |
+| Curvature $F = dA + A \wedge A$ | Field strength |
+| Gauge transformation (change of section) | Gauge transformation $A \to g^{-1}Ag + g^{-1}dg$ |
+| Section of associated bundle | Matter field |
+| Covariant derivative $D = d + A$ | Minimal coupling |
+| Holonomy $\oint A$ | Wilson loop / Aharonov-Bohm phase |
+
+When Weinstein says "the Standard Model *is* geometry," this is what he
+means: the entire formal apparatus of gauge theory is identical to the
+formal apparatus of bundle geometry. Same equations, two languages.
+
+GR uses *Riemannian* geometry on the tangent bundle of spacetime; gauge
+theory uses *Ehresmannian* geometry on a principal bundle over spacetime.
+Geometric Unity (Module 9) is one attempt to put both on the same footing.
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question:
+        "What is the curvature of the connection 1-form A on a principal G-bundle?",
+      choices: [
+        "F = dA",
+        "F = A ∧ A",
+        "F = dA + A ∧ A",
+        "F = ∂A/∂t",
+      ],
+      answer: 2,
+      explanation:
+        "Wedge term is non-zero only for non-abelian groups (where commutators don't vanish). For U(1) it reduces to the abelian F = dA.",
+    },
+    {
+      type: "short-answer",
+      question:
+        "What is the Wu-Yang dictionary translation of 'gauge potential'?",
+      answer: "connection",
+      accept: ["connection( 1[-]?form)?"],
+      explanation: "A_μ is the local representation of a connection on a principal bundle.",
+    },
+  ]}
+/>

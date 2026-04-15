@@ -1,0 +1,78 @@
+export const meta = {
+  title: "The Aharonov-Bohm Effect",
+  module: "09-frontier-physics",
+  order: 1,
+  estimatedMinutes: 50,
+};
+
+# The Aharonov-Bohm Effect
+
+<WhimsyBreak character="robot" mood="confused">
+"It's not the field," beeped the robot. "*It's not the field.* It's the
+*potential.* I have been wrong about *everything.*"
+</WhimsyBreak>
+
+The Aharonov-Bohm effect (1959) is the cleanest demonstration that the
+gauge potential $A_\mu$ — supposedly "unphysical" because of gauge invariance
+— carries observable physics that the field $F_{\mu\nu}$ does not.
+
+## The setup
+
+Send electrons through a double-slit. Behind the slits, place a long
+solenoid carrying magnetic flux $\Phi_B$, oriented so that the magnetic field
+$\vec B$ is *entirely confined inside the solenoid*. The electrons travel
+through a region where $\vec B = 0$ and $\vec E = 0$.
+
+Classically: nothing happens. There's no force. There's no field.
+
+Quantum mechanically: the interference pattern shifts by
+
+$$
+\Delta \varphi = \frac{e}{\hbar} \oint_C \vec A \cdot d\vec\ell = \frac{e}{\hbar} \Phi_B
+$$
+
+where the loop $C$ encircles the solenoid. **The electrons "feel" the
+solenoid even though they never enter the field region.**
+
+## Geometry's revenge
+
+Locally, $\vec A$ is a gauge object — you can shift it by a gradient and
+nothing observable changes. *Globally*, the Wilson loop $\oint A$ around a
+non-contractible loop is a **holonomy**, and holonomy is gauge-invariant.
+
+Translated through the Wu-Yang dictionary: the electromagnetic field is the
+curvature of a $U(1)$ connection over spacetime. Curvature is local. But
+*topology* — which loops are contractible — is global, and connections
+remember the topology of the space they live on.
+
+## Weinstein's meta-point
+
+Classical electromagnetism was considered "fully explored" for almost a
+century. Maxwell wrote it down in 1865. The Aharonov-Bohm paper was 1959 —
+and revealed that one of the most important features of the theory had been
+sitting in plain sight, missed because it requires multiply-connected space
+and quantum mechanics to even formulate.
+
+If a theory as scrutinised as classical EM had a hidden gauge structure for
+nearly a century, what hidden structure does GR have? What does the Standard
+Model? This is the engine of Weinstein's habitual rhetorical move: *no
+theory is ever fully explored*.
+
+<Quiz
+  questions={[
+    {
+      type: "multiple-choice",
+      question:
+        "What does the Aharonov-Bohm effect prove about the gauge potential A?",
+      choices: [
+        "It is observable directly via the electromagnetic field.",
+        "It is unobservable in all situations and can be eliminated.",
+        "It carries observable phase information through holonomy ∮A·dl on non-contractible loops.",
+        "It only matters in classical electrodynamics.",
+      ],
+      answer: 2,
+      explanation:
+        "Locally A is gauge; globally Wilson loops / holonomies are honest physical observables.",
+    },
+  ]}
+/>
